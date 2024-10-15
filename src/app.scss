@@ -1,0 +1,123 @@
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: hsla(241, 78%, 53%);
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
+.app {
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+button {
+  border: none;
+  background: none;
+  outline: none;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.board {
+  .board-row {
+    display: flex;
+
+    border-bottom: 2px solid hsl(0, 0%, 100%);
+    &:last-child {
+      border-bottom: none;
+    }
+    .square {
+      height: 80px;
+      width: 80px;
+      font-size: 2.5rem;
+      border-right: 2px solid hsl(0, 0%, 100%);
+      padding: 0;
+      overflow: hidden;
+      transition: all 0.2s;
+      &:last-child {
+        border-right: none;
+      }
+      &.winning {
+        animation: scaleText 1.4s infinite;
+        @keyframes scaleText {
+          0% {
+            font-size: 2.5rem;
+          }
+          50% {
+            font-size: 3.5rem;
+          }
+
+          100% {
+            transform: 2.5rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.history-wrapper {
+  width: 300px;
+  text-align: center;
+
+  .history {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    li {
+      text-align: left;
+      &:before {
+        content: "";
+        border: 2px solid hsl(120, 100%, 25%);
+        border-radius: 50%;
+        display: inline-block;
+        height: 5px;
+        width: 5px;
+        // background-color: hsl(120, 100%, 25%);
+        margin-right: 4px;
+        margin-bottom: 1px;
+      }
+    }
+    .btn-move {
+      color: #fff;
+      &.active {
+        font-weight: bold;
+        color: hsl(120, 100%, 25%);
+      }
+    }
+  }
+}
+
+.btn-reset {
+  font-size: 0.8rem;
+  color: #fff;
+  border-radius: 15px;
+  padding: 12px 18px;
+  margin-top: 25px;
+  transition: all 0.2s;
+  background-color: hsla(197, 89%, 45%, 0.593);
+  box-shadow: 0px 0px 0px 1px orange;
+  &.active {
+    background-color: orange;
+    box-shadow: none;
+  }
+}
+
+.text-green {
+  color: hsl(160, 100%, 75%);
+}
+.text-orange {
+  color: hsl(39, 100%, 50%);
+}
+
+.status-message {
+  margin-bottom: 30px;
+  font-size: 1.2rem;
+  font-weight: lighter;
+  span {
+    font-weight: normal;
+  }
+}
